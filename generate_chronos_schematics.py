@@ -66,16 +66,16 @@ def generate_assets():
 
     # Panel B: Temporal Filter & Coincidence Window
     # X-axis represents photon arrival time relative to EOM edge (in picoseconds)
-    t_ps = np.linspace(-800, 800, 1000)
-    t_window = 500.0
+    t_ps = np.linspace(-400, 400, 1000)
+    t_window = 150.0
     sigma_j = 100.0
     
     # Intrinsic arrival time distributions
     # Unshifted (ground state, e.g., setting a_prime = 0)
     y_unshifted = 1.0 / (sigma_j * np.sqrt(2 * np.pi)) * np.exp(-t_ps**2 / (2 * sigma_j**2))
     
-    # Shifted (active state, e.g., setting a = pi/4 with +150 ps transient group delay)
-    tau_shift = 150.0
+    # Shifted (active state, e.g., setting a = pi/4 with +30 ps transient group delay)
+    tau_shift = 30.0
     y_shifted = 1.0 / (sigma_j * np.sqrt(2 * np.pi)) * np.exp(-(t_ps - tau_shift)**2 / (2 * sigma_j**2))
     
     ax2.plot(t_ps, y_unshifted, color='#2980b9', linewidth=2.5, label='Unshifted $P(t|0)$')
@@ -91,16 +91,16 @@ def generate_assets():
                      color='#2ecc71', alpha=0.15, label='Coincidence Window')
     
     # Annotate accepted/rejected region
-    ax2.text(0, 0.0005, 'Coincidence Window\n$[-\\Delta t_{\\mathrm{window}}, \\Delta t_{\\mathrm{window}}]$', 
+    ax2.text(0, 0.0008, 'Coincidence Window\n$[-\\Delta t_{\\mathrm{window}}, \\Delta t_{\\mathrm{window}}]$', 
              ha='center', va='bottom', color='#27ae60', fontweight='bold', fontsize=9)
     
     # Rejection region annotation
-    ax2.annotate('Loss of photons\ndue to shift', xy=(580, 0.0002), xytext=(650, 0.0012),
+    ax2.annotate('Loss of photons\ndue to shift', xy=(170, 0.0004), xytext=(220, 0.0018),
                  arrowprops=dict(facecolor='#c0392b', edgecolor='none', shrink=0.08, width=0.8, headwidth=5, headlength=5))
     
     ax2.set_xlabel('Photon Arrival Time Delay $\\tau$ (ps)')
     ax2.set_ylabel('Probability Density')
-    ax2.set_xlim(-800, 800)
+    ax2.set_xlim(-400, 400)
     ax2.set_ylim(0, 0.0048)
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
