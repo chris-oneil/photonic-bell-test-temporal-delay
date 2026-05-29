@@ -1,3 +1,9 @@
+# Ignore full manuscript and compiled papers
+main.tex
+*.pdf
+*.zip
+arxiv_submission.zip
+
 # Python caching
 __pycache__/
 *.pyc
@@ -15,4 +21,3 @@ __pycache__/
 *.fls
 *.blg
 *.bbl
-main.pdf
