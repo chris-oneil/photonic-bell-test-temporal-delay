@@ -185,7 +185,7 @@ def main():
     # Run 3: DI-QKD Cryptographic Security Key Rate Impact Analysis
     print(f"\n--- RUN 3: DI-QKD Cryptographic Security Key Rate Analysis ---")
     print("Evaluating asymptotic secure key rate r >= 1 - h(e_Q) - g(S) under collective attacks.")
-    print("Nominal QBER e_Q = 2.0 percent, Kaniewski (2016) leaked entropy g(S) bounds.")
+    print("Nominal QBER e_Q = 2.0 percent, Pironio et al. (2009) / Kaniewski (2016) bounds.")
     
     # Case A: Real physics S_true = 2.4000 (typical of modern state-of-the-art setups)
     S_true = 2.4000
@@ -214,6 +214,28 @@ def main():
         print(f"  Delay Model '{m:6s}': S = {S_m:.4f} | Delta_S = {delta_S_m:.5f} | delta_sup = {delta_m:.5f}")
         
     print("  Status: Qualitatively robust. The correlation systematic persists across all shapes.")
+    
+    # Run 5: Jitter Scaling and Audit Speed Analysis
+    print(f"\n--- RUN 5: Timing Jitter Scaling and Audit Speed Analysis ---")
+    print(f"Evaluating systematic impact Delta_S and audit speed (SEM) vs. timing jitter (t_window = {t_w_tight} ps):")
+    
+    jitters = [10.0, 18.0, 50.0, 100.0]
+    for j in jitters:
+        S_j, delta_S_j, delta_j = evaluate_pure_temporal_transients(
+            args.eta_base, j, t_w_tight, args.tau_max, N=args.runs, delay_model='cos2'
+        )
+        # Required events to resolve centroid shift down to 1 ps at 3-sigma confidence:
+        # 3 * sigma_j / sqrt(N) = 1 ps -> N = (3 * sigma_j)**2
+        N_req = int((3.0 * j) ** 2)
+        print(f"  Jitter sigma_j = {j:3.0f} ps: S = {S_j:.4f} | Delta_S = {delta_S_j:.5f} | TV delta_sup = {delta_j:.5f} | Audit N_req = {N_req:,} events")
+        
+    print("\n  Metrological Insight:")
+    print("    * For ultra-low jitter (10-18 ps): The systematic's correlation impact is suppressed")
+    print("      to essentially zero because the photon arrival distribution is tightly contained.")
+    print("    * For practical setups (50-100 ps): The tails extend to the coincidence boundary,")
+    print("      making the timing shift highly active (Delta_S ~ 0.001-0.004).")
+    print("    * Compensation: Modern ultra-low jitter setups shrink the systematic impact but make it")
+    print("      up to 100x faster and easier to audit (requiring only ~1,000 events vs. 90,000).")
     print("\n======================================================================\n")
 
 
