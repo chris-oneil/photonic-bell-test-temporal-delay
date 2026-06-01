@@ -30,7 +30,6 @@ We numerically solve the 1D heat diffusion equation for a capacitive RTP crystal
 | File | Description |
 |:---|:---|
 | `Technical Addendum.pdf` | Compiled PDF of the full technical addendum |
-| `main.tex` | LaTeX source |
 | `fiber_overlap.py` | 2D Gaussian overlap integral computation and coupling loss curves |
 | `fiber_overlap_math.md` | Step-by-step mathematical derivation of the overlap integral |
 | `fiber_coupling_loss.png` | Generated figure: coupling efficiency vs. lateral walk-off |
