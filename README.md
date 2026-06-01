@@ -18,7 +18,7 @@ This shift pushes borderline photons outside the rigid temporal coincidence wind
 *   `chronos_simulation.py`: The Python simulation script implementing the setting-dependent temporal filtering models, Parker dispersion linear programs, and quantum DI-QKD secure key rate auditing protocols.
 *   `generate_chronos_schematics.py`: The Python script to generate the multi-panel vector schematic illustrating the systematic mechanism.
 *   `chronos_schematic.svg`: The multi-panel vector schematic showing EOM ringing, dynamic chirp, and coincidence window filtering.
-*   `LICENSE`: MIT License.
+*   `LICENSE`: GNU Affero General Public License (AGPL-3.0).
 *   `README.md`: This description file.
 
 ## Running the Simulation
