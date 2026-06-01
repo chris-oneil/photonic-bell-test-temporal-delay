@@ -1,6 +1,6 @@
 # The Link-Loss Translation: Proving Setting-Dependent Coupling Efficiency in Single-Mode Fibers
 
-**Author:** Christopher O'Neil
+**Author:** Christopher O'Neil (chris-oneil) <christopheroneil@gmail.com>  
 **Date:** June 1, 2026  
 **Status:** Pre-emptive Technical Brief for Phase 1  
 

@@ -1,8 +1,7 @@
 # Technical Addendum: Physical Optics and Thermodynamic Bounding of Active Modulator Transients in Photonic Bell Tests
 
-**Author:** Christopher O'Neil  
+**Author:** Christopher O'Neil (chris-oneil) <christopheroneil@gmail.com>  
 **Affiliation:** Independent Researcher, Big Rapids, MI, USA  
-**Contact:** christopheroneil@gmail.com  
 **Date:** June 2026
 
 ---
